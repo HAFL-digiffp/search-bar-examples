@@ -6,7 +6,9 @@
                #inputElement
                [ngModel]="searchText"
                (ngModelChange)="onInputChangeEvent($event)"
+               (focus)="onInputFocusEvent()"
                (blur)="onInputBlurEvent()"
+               (keyup.enter)="onEnterKeyEvent()"
                [disabled]="disabled">
 
     </div>
@@ -14,13 +16,13 @@
     <div class="buttons" [class.active]="active">
 
         <div class="show">
-            <button type="button" (click)="onToggleActive()">
+            <button type="button" (click)="toggle()">
                 <i class="bi bi-search"></i>
             </button>
         </div>
 
         <div class="hide">
-            <button type="button" (click)="onToggleActive()">
+            <button type="button" (click)="toggle()">
                 <i class="bi bi-x-lg"></i>
             </button>
         </div>

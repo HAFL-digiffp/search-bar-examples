@@ -13,12 +13,14 @@
                        #inputElement
                        [ngModel]="searchText"
                        (ngModelChange)="onInputChangeEvent($event)"
+                       (focus)="onInputFocusEvent()"
                        (blur)="onInputBlurEvent()"
+                       (keyup.enter)="onEnterKeyEvent()"
                        [disabled]="disabled">
 
             </label>
 
-            <button type="button" (click)="onHide()">
+            <button type="button" (click)="close()">
                 <i class="bi bi-x-lg"></i>
             </button>
 

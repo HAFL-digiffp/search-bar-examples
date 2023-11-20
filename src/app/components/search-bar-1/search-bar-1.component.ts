@@ -23,10 +23,6 @@ export class SearchBar1Component implements ControlValueAccessor {
 
     @ViewChild('inputElement') _inputElementRef!: ElementRef;
 
-    @Input() active = false;
-
-    @Output() activeChange = new EventEmitter<boolean>();
-
     private _searchText = '';
 
     get searchText(): string {
@@ -42,6 +38,24 @@ export class SearchBar1Component implements ControlValueAccessor {
 
     @Input() disabled = false;
 
+    @Input() autoFocus = true;
+
+    @Output() onOpen = new EventEmitter<void>();
+
+    @Output() onClose = new EventEmitter<void>();
+
+    @Output() onFocus = new EventEmitter<void>();
+
+    @Output() onBlur = new EventEmitter<void>();
+
+    @Output() onEnterKey = new EventEmitter<string>();
+
+    private _active = false;
+
+    get active(): boolean {
+        return this._active;
+    }
+
     private _onChange: OnChangeCallback<string> = noop;
 
     private _onTouched: OnTouchedCallback = noop;
@@ -52,8 +66,17 @@ export class SearchBar1Component implements ControlValueAccessor {
         this._onChange(value);
     }
 
+    onInputFocusEvent(): void {
+        this.onFocus.emit();
+    }
+
     onInputBlurEvent(): void {
         this._onTouched();
+        this.onBlur.emit();
+    }
+
+    onEnterKeyEvent(): void {
+        this.onEnterKey.emit(this._searchText);
     }
 
     writeValue(value: string): void {
@@ -73,16 +96,33 @@ export class SearchBar1Component implements ControlValueAccessor {
         this.disabled = isDisabled;
     }
 
-    onToggleActive(): void {
-        this._changeActiveState(!this.active);
+    toggle(): void {
+        this._changeActiveState(!this._active);
+    }
+
+    open(): void {
+        this._changeActiveState(true);
+    }
+
+    close(): void {
+        this._changeActiveState(false);
     }
 
     private _changeActiveState(value: boolean): void {
-        this.active = value;
-        this.activeChange.emit(value);
-        if (value) {
-            // request input focus
-            setTimeout(() => this._inputElementRef.nativeElement?.focus());
+        if (this._active !== value) {
+            this._active = value;
+            if (value) {
+                this.onOpen.emit();
+                if (this.autoFocus) {
+                    this._requestSearchFieldFocus();
+                }
+            } else {
+                this.onClose.emit();
+            }
         }
+    }
+
+    private _requestSearchFieldFocus(): void {
+        setTimeout(() => this._inputElementRef.nativeElement?.focus());
     }
 }

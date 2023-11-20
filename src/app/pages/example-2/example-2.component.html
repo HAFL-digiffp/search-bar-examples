@@ -1,6 +1,10 @@
 <header>
     <app-search-bar [(ngModel)]="searchText"
-                    (activeChange)="onActiveChangeEvent($event)">
+                    (onOpen)="onOpenEvent()"
+                    (onClose)="onCloseEvent()"
+                    (onFocus)="onFocusEvent()"
+                    (onBlur)="onBlurEvent()"
+                    (onEnterKey)="onEnterKeyEvent($event)">
 
         <div class="content">
 

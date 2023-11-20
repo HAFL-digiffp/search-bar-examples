@@ -12,6 +12,6 @@ export class SearchBar2ButtonDirective {
 
     @HostListener('click')
     private onClick(): void {
-        this._searchBar.onShow();
+        this._searchBar.open();
     }
 }

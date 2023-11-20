@@ -16,7 +16,25 @@ export class Example2Component {
 
     active = false;
 
-    onActiveChangeEvent(value: boolean): void {
-        this.active = value;
+    onOpenEvent(): void {
+        console.log('search bar open');
+        this.active = true;
+    }
+
+    onCloseEvent(): void {
+        console.log('search bar close');
+        this.active = false;
+    }
+
+    onFocusEvent(): void {
+        console.log('search bar focus');
+    }
+
+    onBlurEvent(): void {
+        console.log('search bar blur');
+    }
+
+    onEnterKeyEvent(searchText: string): void {
+        console.log('search bar enter key: ' + searchText);
     }
 }
