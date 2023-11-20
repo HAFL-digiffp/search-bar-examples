@@ -13,13 +13,17 @@
 
     <div class="buttons" [class.active]="active">
 
-        <button type="button" (click)="onToggleActive()" class="show">
-            <i class="bi bi-search"></i>
-        </button>
+        <div class="show">
+            <button type="button" (click)="onToggleActive()">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
 
-        <button type="button" (click)="onToggleActive()" class="hide">
-            <i class="bi bi-x-lg"></i>
-        </button>
+        <div class="hide">
+            <button type="button" (click)="onToggleActive()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
 
     </div>
 

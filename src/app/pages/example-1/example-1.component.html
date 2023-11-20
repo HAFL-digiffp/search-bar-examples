@@ -1,9 +1,10 @@
 <header>
     <h1>Example 1</h1>
-    <app-search-bar-1 [(ngModel)]="searchText"
-                      (activeChange)="onActiveChangeEvent($event)">
-    </app-search-bar-1>
+    <app-search-bar [(ngModel)]="searchText"
+                    (activeChange)="onActiveChangeEvent($event)">
+    </app-search-bar>
 </header>
+
 <main>
     searchText="{{ searchText }}"<br>
     active="{{ active }}"

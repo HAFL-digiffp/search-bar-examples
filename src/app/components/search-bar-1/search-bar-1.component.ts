@@ -5,7 +5,7 @@ import {noop} from "rxjs";
 import {OnChangeCallback, OnTouchedCallback} from "../../types/value-accessor-types";
 
 @Component({
-    selector: 'app-search-bar-1',
+    selector: 'app-search-bar',
     templateUrl: './search-bar-1.component.html',
     styleUrls: ['./search-bar-1.component.css'],
     standalone: true,

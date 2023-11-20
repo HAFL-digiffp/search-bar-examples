@@ -33,35 +33,46 @@
     display: grid;
 }
 
-.buttons button {
+.buttons .show, .buttons .hide {
     grid-area: 1 / 1 / 2 / 2;
-    padding: 0.5rem;
-    border: none;
-    cursor: pointer;
-    background-color: transparent;
     transition: opacity 1s ease-in-out, transform 1s ease-in-out;
 }
 
-.buttons button.show {
+.buttons .show {
     opacity: 1.0;
     transform: rotate(0deg);
+    z-index: 1;
 }
 
-.buttons.active button.show {
+.buttons.active .show {
     opacity: 0.0;
     transform: rotate(-90deg);
+    z-index: 0;
 }
 
-.buttons button.hide {
+.buttons .hide {
     opacity: 0.0;
     transform: rotate(90deg);
+    z-index: 0;
 }
 
-.buttons.active button.hide {
+.buttons.active .hide {
     opacity: 1.0;
     transform: rotate(0deg);
+    z-index: 1;
 }
 
 .buttons button i {
     font-size: 1.2rem;
+}
+
+.buttons button {
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.buttons button:hover {
+    color: darkblue;
 }
