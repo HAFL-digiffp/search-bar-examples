@@ -1,0 +1,67 @@
+:host {
+    display: block;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    width: 0;
+    overflow: hidden;
+    transition: width 1s ease-in-out;
+}
+
+.search-bar.active {
+    width: 14rem;
+}
+
+.search-bar input {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid black;
+    background-color: transparent;
+}
+
+.search-bar input:focus {
+    border-bottom: 2px solid darkblue;
+}
+
+.buttons {
+    display: grid;
+}
+
+.buttons button {
+    grid-area: 1 / 1 / 2 / 2;
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.buttons button.show {
+    opacity: 1.0;
+    transform: rotate(0deg);
+}
+
+.buttons.active button.show {
+    opacity: 0.0;
+    transform: rotate(-90deg);
+}
+
+.buttons button.hide {
+    opacity: 0.0;
+    transform: rotate(90deg);
+}
+
+.buttons.active button.hide {
+    opacity: 1.0;
+    transform: rotate(0deg);
+}
+
+.buttons button i {
+    font-size: 1.2rem;
+}
