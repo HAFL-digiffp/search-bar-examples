@@ -1,0 +1,37 @@
+<header>
+    <app-search-bar [(ngModel)]="searchText"
+                    (activeChange)="onActiveChangeEvent($event)">
+
+        <div class="content">
+
+            <h1>Example 2</h1>
+
+            <div class="buttons">
+
+                <button type="button">
+                    <i class="bi bi-bar-chart-line"></i>
+                </button>
+
+                <button type="button">
+                    <i class="bi bi-bell"></i>
+                </button>
+
+                <button type="button">
+                    <i class="bi bi-chat-dots"></i>
+                </button>
+
+                <button type="button" appSearchBarButton>
+                    <i class="bi bi-search"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </app-search-bar>
+</header>
+
+<main>
+    searchText="{{ searchText }}"<br>
+    active="{{ active }}"
+</main>

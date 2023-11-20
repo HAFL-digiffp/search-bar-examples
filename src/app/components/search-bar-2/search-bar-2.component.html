@@ -1,0 +1,28 @@
+<div class="wrapper">
+
+    <ng-content/>
+
+    <div class="container">
+        <div class="search-bar" [class.active]="active">
+
+            <label>
+
+                <i class="bi bi-search" title="Search"></i>
+
+                <input type="text"
+                       #inputElement
+                       [ngModel]="searchText"
+                       (ngModelChange)="onInputChangeEvent($event)"
+                       (blur)="onInputBlurEvent()"
+                       [disabled]="disabled">
+
+            </label>
+
+            <button type="button" (click)="onHide()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+
+        </div>
+    </div>
+
+</div>

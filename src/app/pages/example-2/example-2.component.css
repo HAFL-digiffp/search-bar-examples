@@ -1,0 +1,33 @@
+header {
+    padding: 0;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content h1 {
+    margin: 0.75rem;
+}
+
+.content .buttons {
+    margin: 0.75rem;
+    text-align: right;
+}
+
+.content .buttons > button {
+    padding: 0.5rem;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.content .buttons button:hover {
+    color: darkblue;
+}
+
+.content .buttons button i {
+    font-size: 1.2rem;
+}

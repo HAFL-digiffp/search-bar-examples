@@ -10,7 +10,7 @@
 .search-bar {
     width: 0;
     overflow: hidden;
-    transition: width 1s ease-in-out;
+    transition: width 0.5s ease-in-out;
 }
 
 .search-bar.active {
@@ -35,7 +35,7 @@
 
 .buttons .show, .buttons .hide {
     grid-area: 1 / 1 / 2 / 2;
-    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 
 .buttons .show {
