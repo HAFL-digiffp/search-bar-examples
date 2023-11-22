@@ -1,0 +1,32 @@
+<div class="container">
+
+    <div class="search-bar" [class.active]="active" [style.right.px]="buttonsOffset">
+
+        <input type="text"
+               #inputElement
+               [ngModel]="searchText"
+               (ngModelChange)="onInputChangeEvent($event)"
+               (focus)="onInputFocusEvent()"
+               (blur)="onInputBlurEvent()"
+               (keyup.enter)="onEnterKeyEvent()"
+               [disabled]="disabled">
+
+    </div>
+
+    <div #buttons class="buttons" [class.active]="active">
+
+        <div class="show">
+            <button type="button" (click)="toggle()">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+
+        <div class="hide">
+            <button type="button" (click)="toggle()">
+                <i class="bi bi-x-lg"></i>
+            </button>
+        </div>
+
+    </div>
+
+</div>

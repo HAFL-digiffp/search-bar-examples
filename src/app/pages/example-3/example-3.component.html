@@ -1,0 +1,33 @@
+<header>
+    <h1>Example 3</h1>
+
+    <div class="buttons">
+
+        <button type="button">
+            <i class="bi bi-bar-chart-line"></i>
+        </button>
+
+        <button type="button">
+            <i class="bi bi-bell"></i>
+        </button>
+
+        <button type="button">
+            <i class="bi bi-chat-dots"></i>
+        </button>
+
+        <app-search-bar [(ngModel)]="searchText"
+                        (onOpen)="onOpenEvent()"
+                        (onClose)="onCloseEvent()"
+                        (onFocus)="onFocusEvent()"
+                        (onBlur)="onBlurEvent()"
+                        (onEnterKey)="onEnterKeyEvent($event)">
+        </app-search-bar>
+
+    </div>
+
+</header>
+
+<main>
+    searchText="{{ searchText }}"<br>
+    active="{{ active }}"
+</main>
